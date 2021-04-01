@@ -1,0 +1,44 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+}
+.homeBackground {
+  background: url("../../images/Bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.cardBike {
+  width: 180px;
+  padding: 30px;
+}
+.cardCar {
+  width: 188px;
+  padding: 30px;
+}
+.cardBus {
+  width: 188px;
+  padding: 30px;
+}
+.cardTrain {
+  width: 180px;
+  padding: 30px;
+}
+.alignItem {
+  padding-top: 120px;
+}
+
+@media (width: 360px) {
+  .homeBackground {
+    height: 100%;
+  }
+  .cardWidth {
+    margin: 30px;
+  }
+  .alignItem {
+    padding-top: 0px;
+  }
+}

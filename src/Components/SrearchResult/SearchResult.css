@@ -1,0 +1,81 @@
+.resultBox {
+  background-color: #efefef;
+  border-radius: 10px;
+  padding-top: 10px;
+  height: 288px;
+}
+ul {
+  background-color: #3a42ff;
+  padding-top: 20px;
+  height: 148px;
+  border-radius: 10px;
+}
+ul.experiences li {
+  font-size: xx-large;
+  line-height: 1em;
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 0.5em;
+  color: aliceblue;
+}
+ul.experiences li:before {
+  content: "";
+  position: absolute;
+  left: -23px;
+  border-left: 2px solid white;
+  height: 100%;
+}
+ul.experiences li:first-child:before {
+  top: 22px;
+}
+ul.experiences li:last-child:before {
+  height: 6px;
+}
+.vehicle {
+  width: 50px;
+  margin-left: -20px;
+}
+.peopleImage {
+  width: 18px;
+}
+.vehiclNameAndTotalPerson {
+  margin-right: 80px;
+}
+.searchDetail {
+  padding-top: 30px;
+  height: 100px;
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media (width: 360px) {
+  .resultBox {
+    height: 256px;
+  }
+  ul {
+    height: 115px;
+    width: 335px;
+    margin-left: -2px;
+  }
+  ul.experiences li {
+    font-size: x-large;
+  }
+  ul.experiences li:before {
+    left: -19px;
+  }
+  ul.experiences li:first-child:before {
+    top: 18px;
+  }
+  .vehicle {
+    width: 50px;
+    margin-left: 30px;
+  }
+  .vehiclNameAndTotalPerson {
+    margin-left: 60px;
+    margin-right: 50px;
+  }
+  .searchDetail {
+    width: 330px;
+  }
+}

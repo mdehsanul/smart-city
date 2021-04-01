@@ -1,0 +1,38 @@
+.navBar {
+  padding-right: 50px;
+  font-size: 20px;
+  text-decoration: none !important;
+  color: black;
+}
+.navbarListItems {
+  padding-top: 5px;
+}
+.navbarListItems :hover {
+  color: white;
+}
+.navbarImage {
+  width: 250px;
+}
+
+@media (width: 360px) {
+  .navbarImage {
+    width: 150px;
+  }
+  .navBar {
+    padding: 8px;
+    font-size: 16px;
+    text-decoration: none !important;
+    color: black;
+  }
+  .navbarListItems {
+    padding-top: 5px;
+  }
+  div button {
+    font-weight: 800;
+    margin: 10px 10px 0 0;
+    float: right;
+  }
+  .navbarListItems :hover {
+    color: white;
+  }
+} ;

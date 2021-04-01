@@ -1,0 +1,147 @@
+.form-box {
+  width: 580px;
+  height: 530px;
+  position: relative;
+  margin: 3% auto 2% auto;
+  padding: 5px;
+  border: 1px solid black;
+}
+div h2 {
+  color: black;
+  font-weight: 600;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+.input-group {
+  top: 20px;
+  position: absolute;
+  width: 280px;
+  /* transition: 5s; */
+}
+.input-field {
+  width: 100%;
+  padding: 10px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+.submit-btn {
+  width: 100%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin-top: 10px;
+  border: 0;
+  outline: none;
+  background: #3a42ff;
+  color: white;
+}
+.check-box {
+  margin: 30px 10px 30px 0;
+}
+span {
+  color: #777;
+  margin-top: 25px;
+  margin-left: 20px;
+  position: relative;
+}
+.signinOrCreateAccount {
+  padding-top: 10px;
+  margin-left: 55px;
+}
+#login {
+  width: 70%;
+  left: 15%;
+  top: 10%;
+}
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 25%;
+  margin-left: 720px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #000;
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.25em;
+}
+.socialButton {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  margin-left: 20px;
+}
+.button {
+  width: 26%;
+  margin: 10px;
+  padding: 10px 30px;
+  background: white;
+  color: black;
+  border: 1px solid #3a42ff;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.facebookImage {
+  width: 29px;
+  float: left;
+  margin-left: -22px;
+}
+.googleImage {
+  width: 25px;
+  float: left;
+  margin-left: -22px;
+}
+@media (width: 360px) {
+  .login {
+    overflow-x: hidden;
+  }
+  .form-box {
+    width: 360px;
+    border: none;
+  }
+  #login {
+    width: 95%;
+    left: 4%;
+  }
+  .signinOrCreateAccount {
+    padding-top: 10px;
+    margin-left: 30px;
+    font-size: 13px;
+  }
+  .separator {
+    margin-left: 135px;
+    padding-top: 5px;
+    margin-bottom: -14px;
+  }
+  .socialButton {
+    padding-bottom: 60px;
+  }
+  .button {
+    width: 90%;
+    margin-right: 20px;
+    margin-top: 10px;
+    background: white;
+    color: black;
+    border: 1px solid #3a42ff;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+}
