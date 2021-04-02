@@ -51,9 +51,18 @@ span {
   margin-left: 20px;
   position: relative;
 }
-.signinOrCreateAccount {
+.haveAccountOrCreate {
   padding-top: 10px;
-  margin-left: 55px;
+  margin-left: 25px;
+}
+.signinOrCreateAccount {
+  margin-left: 0px;
+  padding-left: 2px;
+  color: #3a42ff;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid #3a42ff;
 }
 #login {
   width: 70%;

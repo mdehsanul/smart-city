@@ -8,7 +8,7 @@
   padding-top: 5px;
 }
 .navbarListItems :hover {
-  color: white;
+  color: rgb(255, 68, 0);
 }
 .navbarImage {
   width: 250px;
@@ -31,8 +31,5 @@
     font-weight: 800;
     margin: 10px 10px 0 0;
     float: right;
-  }
-  .navbarListItems :hover {
-    color: white;
   }
 } ;

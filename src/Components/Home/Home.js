@@ -13,6 +13,11 @@ const Home = () => {
   useEffect(() => {
     setData(fakeData);
   });
+
+  const ListStyle = {
+    textDecoration: "none",
+    color: "black",
+  };
   return (
     <div className="homeBackground">
       <Navbar></Navbar>
@@ -21,37 +26,37 @@ const Home = () => {
           <div className="col-md-3 col-sm-12 ">
             <div className="card text-center mb-3 cardWidth">
               <div className="card-body "></div>
-              <Link to="/">
+              <Link to="/search" style={ListStyle}>
                 <img src={bike} alt="" className="cardBike" />
+                <p>BIKE</p>
               </Link>
-              <p>BIKE</p>
             </div>
           </div>
           <div className="col-md-3 col-sm-6 ">
             <div className="card text-center mb-3 cardWidth">
               <div className="card-body"></div>
-              <Link to="/">
+              <Link to="/search" style={ListStyle}>
                 <img src={car} alt="" className="cardCar" />
+                <p>CAR</p>
               </Link>
-              <p>CAR</p>
             </div>
           </div>
           <div className="col-md-3 col-sm-6">
             <div className="card text-center mb-3 cardWidth">
               <div className="card-body"></div>
-              <Link to="/">
+              <Link to="/search" style={ListStyle}>
                 <img src={bus} alt="" className="cardBus" />
+                <p>BUS</p>
               </Link>
-              <p>BUS</p>
             </div>
           </div>
           <div className="col-md-3 col-sm-6">
             <div className="card text-center mb-3 cardWidth">
               <div className="card-body"></div>
-              <Link to="/">
+              <Link to="/search" style={ListStyle}>
                 <img src={train} alt="" className="cardTrain" />
+                <p>TRAIN</p>
               </Link>
-              <p>TRAIN</p>
             </div>
           </div>
         </div>

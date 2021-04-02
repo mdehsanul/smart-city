@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -6,12 +6,15 @@ import firebaseConfig from "./firebase.config";
 import Navbar from "../Navbar/Navbar";
 import google from "../../images/google.png";
 import facebook from "../../images/facebook.png";
+import { UserContext } from "../../App";
+import { useHistory, useLocation } from "react-router";
 
 if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
 const Login = () => {
+  const [newUser, setNewUser] = useState(false);
   const [user, setUser] = useState({
     isSignin: false,
     name: "",
@@ -21,6 +24,13 @@ const Login = () => {
     success: false,
     error: "",
   });
+
+  // useContext()
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  // PrivateRoute
+  const history = useHistory();
+  const location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
 
   // google validation
   const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -37,6 +47,8 @@ const Login = () => {
           photo: photoURL,
         };
         setUser(signedInUser);
+        setLoggedInUser(signedInUser);
+        history.replace(from);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -55,6 +67,8 @@ const Login = () => {
       .then((result) => {
         var user = result.user;
         setUser(user);
+        setLoggedInUser(user);
+        history.replace(from);
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -62,8 +76,6 @@ const Login = () => {
         console.log(errorCode, errorMessage);
       });
   };
-
-  const [newUser, setNewUser] = useState(false);
 
   // <form> input-field's validation
   const handleInputFieldChange = (event) => {
@@ -100,6 +112,8 @@ const Login = () => {
           newUserInformation.error = "";
           newUserInformation.success = true;
           setUser(newUserInformation);
+          setLoggedInUser(newUserInformation);
+          history.replace(from);
           updateUserName(user.name);
         })
         .catch((error) => {
@@ -119,7 +133,10 @@ const Login = () => {
           newUserInfo.error = " ";
           newUserInfo.success = true;
           setUser(newUserInfo);
-          console.log("Sign in user info:", response.user);
+          setLoggedInUser(newUserInfo);
+          // PrivateRoute
+          history.replace(from);
+          // console.log("Sign in user info:", response.user);
         })
         .catch((error) => {
           const newUserInfo = { ...user };
@@ -208,12 +225,16 @@ const Login = () => {
             className="submit-btn"
             value={newUser ? "Create an account" : "Login"}
           />
-          <p className="signinOrCreateAccount">
+          <p className="haveAccountOrCreate">
             {newUser ? "Already have an account?" : "Don't have an account?"}
             {/* initial work of useState() -> "newUser" and "setNewUser" start from here.... */}
-            <a href="#" name="newUser" onClick={() => setNewUser(!newUser)}>
+            <span
+              name="newUser"
+              onClick={() => setNewUser(!newUser)}
+              className="signinOrCreateAccount"
+            >
               {newUser ? "Login" : "Create an account "}
-            </a>
+            </span>
           </p>
         </form>
       </div>

@@ -23,7 +23,9 @@ const Navbar = () => {
           <Link to="/" className="navBar">
             Contact
           </Link>
-          <button className="btn btn btn-outline-dark">Login</button>
+          <Link to="/login">
+            <button className="btn btn btn-outline-dark">Login</button>
+          </Link>
         </div>
       </div>
     </nav>

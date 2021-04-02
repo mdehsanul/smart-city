@@ -30,7 +30,6 @@
 .alignItem {
   padding-top: 120px;
 }
-
 @media (width: 360px) {
   .homeBackground {
     height: 100%;
