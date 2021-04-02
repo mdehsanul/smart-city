@@ -25,9 +25,9 @@ function App() {
           <PrivateRoute path="/search">
             <Search></Search>
           </PrivateRoute>
-          <Route path="/searchresult">
+          <PrivateRoute path="/searchresult">
             <SearchResult></SearchResult>
-          </Route>
+          </PrivateRoute>
           <Route path="/">
             <Home></Home>
           </Route>

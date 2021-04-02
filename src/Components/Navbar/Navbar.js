@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import navbarImage from "../../images/Smart City.png";
+import { UserContext } from "../../App";
 
 const Navbar = () => {
+  // useContext()
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   return (
     <nav className="navbar navbar-light pt-5" style={{ overflowX: "hidden" }}>
       <div className="container">

@@ -24,7 +24,7 @@ const Login = () => {
     success: false,
     error: "",
   });
-
+  console.log(user.name);
   // useContext()
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   // PrivateRoute
@@ -112,9 +112,11 @@ const Login = () => {
           newUserInformation.error = "";
           newUserInformation.success = true;
           setUser(newUserInformation);
+          console.log(newUserInformation);
           setLoggedInUser(newUserInformation);
           history.replace(from);
           updateUserName(user.name);
+          // console.log(user.name);
         })
         .catch((error) => {
           const newUserInformation = { ...user };
