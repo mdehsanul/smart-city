@@ -7,9 +7,6 @@ import { UserContext } from "../../App";
 const Navbar = () => {
   // useContext()
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  console.log(loggedInUser);
-  console.log(loggedInUser.name);
-
   return (
     <nav className="navbar navbar-light pt-5" style={{ overflowX: "hidden" }}>
       <div className="container">
@@ -31,7 +28,9 @@ const Navbar = () => {
           </Link>
 
           {loggedInUser.email ? (
-            <span className="userName">{loggedInUser.name}</span>
+            <span className="userName">
+              {loggedInUser.displayName || loggedInUser.name}
+            </span>
           ) : (
             <Link to="/login">
               <button className="btn btn btn-outline-dark">Login</button>

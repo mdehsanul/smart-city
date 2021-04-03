@@ -8,7 +8,7 @@ const Search = () => {
   const { vehicleKey } = useParams();
 
   const history = useHistory();
-  const handleClick = (event) => {
+  const handleClick = () => {
     const url = `/searchresult/${vehicleKey}`;
     history.push(url);
   };

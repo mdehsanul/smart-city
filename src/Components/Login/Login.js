@@ -1,17 +1,17 @@
 import React, { useContext, useState } from "react";
 import "./Login.css";
-import firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from "./firebase.config";
 import Navbar from "../Navbar/Navbar";
 import google from "../../images/google.png";
 import facebook from "../../images/facebook.png";
 import { UserContext } from "../../App";
 import { useHistory, useLocation } from "react-router";
-
-if (firebase.apps.length === 0) {
-  firebase.initializeApp(firebaseConfig);
-}
+import {
+  createUserWithEmailAndPassword,
+  handleFacebookSignIn,
+  handleGoogleSignIn,
+  initializeLoginFramework,
+  signInWithEmailAndPassword,
+} from "./loginManager";
 
 const Login = () => {
   // useContext()
@@ -22,6 +22,7 @@ const Login = () => {
   const location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
 
+  // useState() for firebase
   const [newUser, setNewUser] = useState(false);
   const [user, setUser] = useState({
     isSignin: false,
@@ -33,49 +34,29 @@ const Login = () => {
     error: "",
   });
 
-  // google validation
-  const googleProvider = new firebase.auth.GoogleAuthProvider();
-  const handleGoogleSignIn = () => {
-    firebase
-      .auth()
-      .signInWithPopup(googleProvider)
-      .then((result) => {
-        const { displayName, email, photoURL } = result.user;
-        const signedInUser = {
-          isSignin: true,
-          name: displayName,
-          email: email,
-          photo: photoURL,
-        };
-        setUser(signedInUser);
-        setLoggedInUser(signedInUser);
-        history.replace(from);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        console.log(errorCode, errorMessage, email);
-      });
+  initializeLoginFramework();
+
+  const handleAllFunctionResponse = (response, redirect) => {
+    setUser(response);
+    setLoggedInUser(response);
+    if (redirect) {
+      // PrivateRoute
+      history.replace(from);
+    }
   };
 
-  // facebook validation
-  var facebookprovider = new firebase.auth.FacebookAuthProvider();
-  const handleFacebookSignIn = () => {
-    firebase
-      .auth()
-      .signInWithPopup(facebookprovider)
-      .then((result) => {
-        var user = result.user;
-        setUser(user);
-        setLoggedInUser(user);
-        history.replace(from);
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
+  // google validation using firebase
+  const googleSignIn = () => {
+    handleGoogleSignIn().then((response) => {
+      handleAllFunctionResponse(response, true);
+    });
+  };
+
+  // facebook validation using fiirebase
+  const facebookSignIn = () => {
+    handleFacebookSignIn().then((response) => {
+      handleAllFunctionResponse(response, true);
+    });
   };
 
   // <form> input-field's validation
@@ -101,72 +82,26 @@ const Login = () => {
     }
   };
 
-  // when <form> input-field valid let login user
+  // when <form> input-field valid
   const handleFormSubmit = (event) => {
     // create new user, using firebase Auth
     if (newUser && user.email && user.password) {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(user.email, user.password)
-        .then((result) => {
-          const newUserInformation = { ...user };
-          newUserInformation.error = "";
-          newUserInformation.success = true;
-          setUser(newUserInformation);
-          setLoggedInUser(newUserInformation);
-          history.replace(from);
-          updateUserName(user.name);
+      createUserWithEmailAndPassword(user.name, user.email, user.password).then(
+        (response) => {
+          handleAllFunctionResponse(response, true);
           alert("Account Created");
-        })
-        .catch((error) => {
-          const newUserInformation = { ...user };
-          newUserInformation.error = error.message;
-          newUserInformation.success = false;
-          setUser(newUserInformation);
-        });
+        }
+      );
     }
     // user login using firebase Auth
     if (!newUser && user.email && user.password) {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(user.email, user.password)
-        .then((response) => {
-          const newUserInfo = { ...user };
-          newUserInfo.error = " ";
-          newUserInfo.success = true;
-          setUser(newUserInfo);
-          setLoggedInUser(newUserInfo);
-          alert("user loggedin");
-          // PrivateRoute
-          history.replace(from);
-
-          // console.log("Sign in user info:", response.user);
-        })
-        .catch((error) => {
-          const newUserInfo = { ...user };
-          newUserInfo.error = error.message;
-          newUserInfo.success = false;
-          setUser(newUserInfo);
-        });
+      signInWithEmailAndPassword(user.email, user.password).then((response) => {
+        handleAllFunctionResponse(response, true);
+        alert("user loggedin");
+      });
     }
     // prevent browser from auto loading
     event.preventDefault();
-  };
-
-  // Adding user-name in firebase Auth when new-user create
-  const updateUserName = (name) => {
-    var user = firebase.auth().currentUser;
-    user
-      .updateProfile({
-        displayName: name,
-      })
-      .then(function () {
-        // Update successful.
-        console.log("User name updated successfully");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   };
 
   return (
@@ -246,12 +181,12 @@ const Login = () => {
       <div>
         <div className="separator">Or</div>
         <div className="socialButton">
-          <button className="button" onClick={handleFacebookSignIn}>
+          <button className="button" onClick={facebookSignIn}>
             <img src={facebook} className="facebookImage" /> Continue with
             Facebook
           </button>
           <br />
-          <button className="button" onClick={handleGoogleSignIn}>
+          <button className="button" onClick={googleSignIn}>
             <img src={google} className="googleImage" /> Continue with Google
           </button>
         </div>
