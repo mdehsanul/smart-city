@@ -12,7 +12,8 @@ https://smart-city-b8b00.firebaseapp.com/
 1. Navbar -> in the navbar, a logo, Home, Destination, Blog, Contact, and Login button added. Home, Destination, Blog, Contact button redirects the user to the Home page.
 The login button uses to go to the Login page to create a new account or log in. when a user login or create a new account the login button switch to the user name.                                                                            
 3. Home page -> On this page, users will get four-vehicles (train, bike, car, bus) option cards for choice for their travel with the navbar. after choosing any of the vehicle  they redirect to the Login page to create a new account or login
-4. Login page -> in this page, user can create a new account or login.     
+4. Login page -> in this page, user can create a new account or login.
+      
                  login can be done using:
                  * Email, password
                  * facebook
