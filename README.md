@@ -14,14 +14,14 @@ The login button uses to go to the Login page to create a new account or log in.
 3. Home page -> On this page, users will get four-vehicles (train, bike, car, bus) option cards for choice for their travel with the navbar. after choosing any of the vehicle  they redirect to the Login page to create a new account or login
 4. Login page -> in this page, user can create a new account or login.     
                  login can be done using:
-                 * Email, password
-                 * facebook
-                 * google
+                 1. Email, password
+                 2. facebook
+                 3. google
                  create a new account can be done using:
-                 * name
-                 * email
-                 * password
-                 * confirmpassword
+                 1. name
+                 2. email
+                 3. password
+                 4. confirmpassword
 6. Search page -> On this page, users get the option to write their travel starting point and destination point with date and time. also, they can see the google map for know detail(path distance, time need to reach, etc) about their travel. when a user login or create a new account in the navbar login button will change and will show the user name.
 
 8. SearchResult page -> On this page,  we show users the places they write(static) and vehicle image, vehicle name, number of people, total cost dynamically according to their selection of vehicle from the Home page. besides, they can see google Maps with user selection place.  when a user login or create a new account in the navbar login button will change and will show the user name.
