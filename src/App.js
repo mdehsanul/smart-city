@@ -22,15 +22,16 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <PrivateRoute path="/search">
+          <PrivateRoute path="/search/:vehicleKey">
             <Search></Search>
           </PrivateRoute>
-          <PrivateRoute path="/searchresult">
+          <PrivateRoute path="/searchresult/:vehicleKey">
             <SearchResult></SearchResult>
           </PrivateRoute>
-          <Route path="/">
+          <Route exact path="/">
             <Home></Home>
           </Route>
+          <Route path="*"></Route>
         </Switch>
       </Router>
     </UserContext.Provider>

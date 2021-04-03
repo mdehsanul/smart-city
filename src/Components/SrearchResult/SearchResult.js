@@ -4,8 +4,12 @@ import Navbar from "../Navbar/Navbar";
 import "./SearchResult.css";
 import car from "../../images/Frame-2.png";
 import peopleImage from "../../images/peopleicon.png";
+import { useParams } from "react-router";
+import fakeData from "../../fakeData/data.json";
 
 const SearchResult = () => {
+  const { vehicleKey } = useParams();
+  const vehicle = fakeData.find((code) => code.id == vehicleKey);
   return (
     <div>
       <Navbar></Navbar>
@@ -23,16 +27,16 @@ const SearchResult = () => {
             <div className="searchDetail">
               <div class="row justify-content-md-center">
                 <div class="col-2 ">
-                  <img src={car} alt="" srcset="" className="vehicle" />
+                  <img src={vehicle.img} alt="" srcset="" className="vehicle" />
                 </div>
                 <div class="col-auto pt-2">
                   <p className="vehiclNameAndTotalPerson">
-                    Car <img src={peopleImage} alt="" className="peopleImage" />{" "}
-                    4
+                    {vehicle.name}{" "}
+                    <img src={peopleImage} alt="" className="peopleImage" />4
                   </p>
                 </div>
                 <div class="col-2 pt-2">
-                  <p>$67</p>
+                  <p>${vehicle.rent}</p>
                 </div>
               </div>
             </div>

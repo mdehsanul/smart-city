@@ -1,14 +1,18 @@
 import React from "react";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import GoogleMap from "../GoogleMap/GoogleMap";
 import Navbar from "../Navbar/Navbar";
 import "./Search.css";
 
 const Search = () => {
+  const { vehicleKey } = useParams();
+
   const history = useHistory();
   const handleClick = () => {
-    history.push("/searchresult");
+    const url = `/searchresult/${vehicleKey}`;
+    history.push(url);
   };
+
   return (
     <div>
       <Navbar></Navbar>
@@ -21,7 +25,7 @@ const Search = () => {
               </label>
               <input
                 type="text"
-                name="from"
+                name="start"
                 class="form-control"
                 id="formGroupExampleInput"
                 placeholder="Choose starting point"

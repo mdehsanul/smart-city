@@ -6,12 +6,12 @@
     }, {
     "id": 2,
     "name": "Car",
-    "img": "https://i.ibb.co/4Nzg2PG/Frame-1.png",
+    "img": "https://i.ibb.co/yVQ6VXd/Frame-2.png",
     "rent": 650
   }, {
     "id": 3,
     "name": "Bus",
-    "img": "https://i.ibb.co/yVQ6VXd/Frame-2.png",
+    "img": "https://i.ibb.co/4Nzg2PG/Frame-1.png",
     "rent": 75
   },{
     "id": 4,
