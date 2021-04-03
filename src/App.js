@@ -6,6 +6,7 @@ import Login from "./Components/Login/Login";
 import Search from "./Components/Search/Search";
 import SearchResult from "./Components/SrearchResult/SearchResult";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import NoMatch from "./Components/NoMatch/NoMatch";
 
 // createContext()
 export const UserContext = createContext();
@@ -31,7 +32,9 @@ function App() {
           <Route exact path="/">
             <Home></Home>
           </Route>
-          <Route path="*"></Route>
+          <Route path="*">
+            <NoMatch></NoMatch>
+          </Route>
         </Switch>
       </Router>
     </UserContext.Provider>

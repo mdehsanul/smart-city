@@ -14,6 +14,14 @@ if (firebase.apps.length === 0) {
 }
 
 const Login = () => {
+  // useContext()
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+  // PrivateRoute
+  const history = useHistory();
+  const location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
+
   const [newUser, setNewUser] = useState(false);
   const [user, setUser] = useState({
     isSignin: false,
@@ -24,13 +32,6 @@ const Login = () => {
     success: false,
     error: "",
   });
-  console.log(user.name);
-  // useContext()
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  // PrivateRoute
-  const history = useHistory();
-  const location = useLocation();
-  let { from } = location.state || { from: { pathname: "/" } };
 
   // google validation
   const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -112,11 +113,10 @@ const Login = () => {
           newUserInformation.error = "";
           newUserInformation.success = true;
           setUser(newUserInformation);
-          console.log(newUserInformation);
           setLoggedInUser(newUserInformation);
           history.replace(from);
           updateUserName(user.name);
-          // console.log(user.name);
+          alert("Account Created");
         })
         .catch((error) => {
           const newUserInformation = { ...user };
@@ -136,8 +136,10 @@ const Login = () => {
           newUserInfo.success = true;
           setUser(newUserInfo);
           setLoggedInUser(newUserInfo);
+          alert("user loggedin");
           // PrivateRoute
           history.replace(from);
+
           // console.log("Sign in user info:", response.user);
         })
         .catch((error) => {
@@ -199,7 +201,8 @@ const Login = () => {
             id=""
             onBlur={handleInputFieldChange}
             className="input-field"
-            placeholder="Password"
+            placeholder="Password(length 7
+               and must contain a-z A-Z 0-9)"
             required
           />
           {newUser && (

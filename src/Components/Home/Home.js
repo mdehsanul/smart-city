@@ -1,14 +1,16 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
 import "./Home.css";
+import train from "../../images/Group.png";
 import bike from "../../images/Frame.png";
 import car from "../../images/Frame-2.png";
 import bus from "../../images/Frame-1.png";
-import train from "../../images/Group.png";
+
 import { Link } from "react-router-dom";
 import fakeData from "../../fakeData/data.json";
 
 const Home = () => {
+  // fackData
   const vehicleCode_1 = fakeData.find((data) => data.id === 1);
   const vehicle_1 = vehicleCode_1.id;
   const vehicleCode_2 = fakeData.find((data) => data.id === 2);
@@ -28,42 +30,43 @@ const Home = () => {
       <div className="container alignItem">
         <div className="row ">
           <div className="col-md-3 col-sm-12 ">
-            <div className="card text-center mb-3 cardWidth">
-              <div className="card-body "></div>
-              <Link to={"/search/" + vehicle_1} style={ListStyle}>
-                <img src={bike} alt="" className="cardBike" />
-                <p>BIKE</p>
-              </Link>
+            <div className="card text-center mb-3 cardWidth ">
+              <div className="card-body cardColor">
+                <Link to={"/search/" + vehicle_1} style={ListStyle}>
+                  <img src={train} alt="" className="cardTrain" />
+                  <p className="cardName">TRAIN</p>
+                </Link>
+              </div>
             </div>
           </div>
           <div className="col-md-3 col-sm-6 ">
             <div className="card text-center mb-3 cardWidth">
-              <div className="card-body"></div>
-
-              <Link to={"/search/" + vehicle_2} style={ListStyle}>
-                <img src={car} alt="" className="cardCar" />
-                <p>CAR</p>
-              </Link>
+              <div className="card-body cardColor">
+                <Link to={"/search/" + vehicle_2} style={ListStyle}>
+                  <img src={bike} alt="" className="cardBike" />
+                  <p className="cardName">BIKE</p>
+                </Link>
+              </div>
             </div>
           </div>
           <div className="col-md-3 col-sm-6">
             <div className="card text-center mb-3 cardWidth">
-              <div className="card-body"></div>
-
-              <Link to={"/search/" + vehicle_3} style={ListStyle}>
-                <img src={bus} alt="" className="cardBus" />
-                <p>BUS</p>
-              </Link>
+              <div className="card-body cardColor">
+                <Link to={"/search/" + vehicle_3} style={ListStyle}>
+                  <img src={car} alt="" className="cardCar" />
+                  <p className="cardName">CAR</p>
+                </Link>
+              </div>
             </div>
           </div>
           <div className="col-md-3 col-sm-6">
             <div className="card text-center mb-3 cardWidth">
-              <div className="card-body"></div>
-
-              <Link to={"/search/" + vehicle_4} style={ListStyle}>
-                <img src={train} alt="" className="cardTrain" />
-                <p>TRAIN</p>
-              </Link>
+              <div className="card-body cardColor">
+                <Link to={"/search/" + vehicle_4} style={ListStyle}>
+                  <img src={bus} alt="" className="cardBus" />
+                  <p className="cardName">BUS</p>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -1,21 +1,25 @@
 [{
-    "id": 1,
+  "id": 1,
+  "name": "Train",
+  "img": "https://i.ibb.co/bNDr8WQ/Group.png",
+  "person": 1,
+  "rent": 20
+},{
+    "id": 2,
     "name": "Bike",
     "img": "https://i.ibb.co/m6snjCz/Frame.png",
+    "person": 1,
     "rent": 300
+    },{
+      "id": 3,
+      "name": "Car",
+      "img": "https://i.ibb.co/yVQ6VXd/Frame-2.png",
+      "person": 4,
+      "rent": 650
     }, {
-    "id": 2,
-    "name": "Car",
-    "img": "https://i.ibb.co/yVQ6VXd/Frame-2.png",
-    "rent": 650
-  }, {
-    "id": 3,
+    "id": 4,
     "name": "Bus",
     "img": "https://i.ibb.co/4Nzg2PG/Frame-1.png",
-    "rent": 75
-  },{
-    "id": 4,
-    "name": "Train",
-    "img": "https://i.ibb.co/bNDr8WQ/Group.png",
-    "rent": 20
+    "person": 1,
+    "rent": 35
   }]

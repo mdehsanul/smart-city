@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory, useParams } from "react-router";
 import GoogleMap from "../GoogleMap/GoogleMap";
 import Navbar from "../Navbar/Navbar";
@@ -8,7 +8,7 @@ const Search = () => {
   const { vehicleKey } = useParams();
 
   const history = useHistory();
-  const handleClick = () => {
+  const handleClick = (event) => {
     const url = `/searchresult/${vehicleKey}`;
     history.push(url);
   };
@@ -20,7 +20,10 @@ const Search = () => {
         <div className="row searchPage">
           <div className="col-sm-4 searchField">
             <form>
-              <label for="formGroupExampleInput" class="form-label">
+              <label
+                for="formGroupExampleInput"
+                className="form-label form-title"
+              >
                 Pick From
               </label>
               <input
@@ -30,7 +33,10 @@ const Search = () => {
                 id="formGroupExampleInput"
                 placeholder="Choose starting point"
               />
-              <label for="formGroupExampleInput2" class="form-label">
+              <label
+                for="formGroupExampleInput2"
+                className="form-label form-title"
+              >
                 Pick To
               </label>
               <input
@@ -40,6 +46,15 @@ const Search = () => {
                 id="formGroupExampleInput2"
                 placeholder="Choose destination"
               />
+              <label for="birthdaytime" className="form-label form-title">
+                Choose a time for your travel:
+              </label>
+              <input
+                type="datetime-local"
+                id="birthdaytime"
+                name="birthdaytime"
+                class="form-control"
+              ></input>
               <input
                 type="submit"
                 className="search-btn"

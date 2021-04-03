@@ -10,7 +10,10 @@
   background-attachment: fixed;
   height: 100vh;
 }
-
+.cardColor {
+  background-color: #495464;
+  border-radius: 5px;
+}
 .cardBike {
   width: 180px;
   padding: 30px;
@@ -29,6 +32,9 @@
 }
 .alignItem {
   padding-top: 120px;
+}
+.cardName {
+  color: white;
 }
 @media (width: 360px) {
   .homeBackground {

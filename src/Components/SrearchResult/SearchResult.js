@@ -2,7 +2,6 @@ import React from "react";
 import GoogleMap from "../GoogleMap/GoogleMap";
 import Navbar from "../Navbar/Navbar";
 import "./SearchResult.css";
-import car from "../../images/Frame-2.png";
 import peopleImage from "../../images/peopleicon.png";
 import { useParams } from "react-router";
 import fakeData from "../../fakeData/data.json";
@@ -32,7 +31,8 @@ const SearchResult = () => {
                 <div class="col-auto pt-2">
                   <p className="vehiclNameAndTotalPerson">
                     {vehicle.name}{" "}
-                    <img src={peopleImage} alt="" className="peopleImage" />4
+                    <img src={peopleImage} alt="" className="peopleImage" />{" "}
+                    {vehicle.person}
                   </p>
                 </div>
                 <div class="col-2 pt-2">

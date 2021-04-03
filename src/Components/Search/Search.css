@@ -9,7 +9,10 @@
   background-color: #efefef;
   border-radius: 10px;
   padding-top: 10px;
-  height: 270px;
+  height: 365px;
+}
+.form-title {
+  padding-top: 15px;
 }
 .search-btn {
   width: 100%;
