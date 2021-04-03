@@ -1,14 +1,37 @@
 # website name: 
-UEFA Champions League
-
+Smart City
 
 ## live:
-https://musing-liskov-9e4cb7.netlify.app/
+https://smart-city-b8b00.web.app/
+
+or,
+
+https://smart-city-b8b00.firebaseapp.com/
 
 ### Feature:
-1. Home page -> in this page, all the team of UEFA Champions League is displayed using a card where image, team name, sports type and a explore button is used to go for the detail page of the team.
-2. Team Detail Page -> On this page, the team logo, team bio with image, about the team, a back to the home page button, and social(Twitter, Facebook, youtube) links are displayed with icons.
-3. React Router is used to switch between the pages and the URL is Dynamically generated.
+1. Navbar -> in the navbar, a logo, Home, Destination, Blog, Contact, and Login button added. Home, Destination, Blog, Contact button redirects the user to the Home page.
+The login button uses to go to the Login page to create a new account or log in. when a user login or create a new account the login button switch to the user name.                                                                            
+3. Home page -> On this page, users will get four-vehicles (train, bike, car, bus) option cards for choice for their travel with the navbar. after choosing any of the vehicle  they redirect to the Login page to create a new account or login
+4. Login page -> in this page, user can create a new account or login.     
+                 login can be done using:
+                 * Email, password
+                 * facebook
+                 * google
+                 create a new account can be done using:
+                 * name
+                 * email
+                 * password
+                 * confirmpassword
+6. Search page -> On this page, users get the option to write their travel starting point and destination point with date and time. also, they can see the google map for know detail(path distance, time need to reach, etc) about their travel. when a user login or create a new account in the navbar login button will change and will show the user name.
+
+8. SearchResult page -> On this page,  we show users the places they write(static) and vehicle image, vehicle name, number of people, total cost dynamically according to their selection of vehicle from the Home page. besides, they can see google Maps with user selection place.  when a user login or create a new account in the navbar login button will change and will show the user name.
+
+10. React Router is used to switch between the pages and the URL is Dynamically generated.
+
+12. PrivateRoute -> PrivateRoute used to make Search page, SearchResult page authorized page by giving permission to the users who are already logged in or create a new account.
+otherwise, the user can not enter in the Search page, SearchResult page.
+
+14. NoMatch -> if a user writes/enters the wrong URL address that not exit then this page will show with 404.
 
 ### Responsiveness:
 1. Desktop
@@ -17,5 +40,6 @@ https://musing-liskov-9e4cb7.netlify.app/
     * Moto G4(360 X 640), 100%, Online
     * Galaxy S5(360 X 640), 100%, Online
  
-### Attention:
-in the team detail page i used each team image from API. Sometime due to network problem it take few second to load or a minute if face any problem please use browser reload or "Back to Home" buttton from the page to go back home page and agin try to use "Explore" button. and it will work. Thank you for the support...
+### Attention: (this can be happen or not)
+1. when a user login or create a new account, for loading problem(maybe) user name will not show in the navbar, for this goto SearchResult page by clicking submit button from the Search page or goto Home page and come to the Search page. this time you can see the user name.
+2. when a user login or create a new account and the user is on the Search page or SearchResult page and reload the page the user will redirect to the login page for again login and after login sometimes the user name will not show in the navbar if happen go to the Home page by navbar and again goto Search page this time you can see the user name.
